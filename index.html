@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vertical Bomb Switch</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #111;
+      font-family: 'Courier New', monospace;
+      color: white;
+      height: 120vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .switch-box {
+      background: #222;
+      border: 8px solid #444;
+      border-radius: 20px;
+      padding: 50px 20px;
+      box-shadow: 0 0 25px red;
+      width: 90vw;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .title {
+      font-size: 7vw;
+      color: #f00;
+      text-shadow: 0 0 15px #f00;
+      margin: 0;
+    }
+
+    .switch-button {
+      width: 70vw;
+      height: 70vw;
+      max-width: 280px;
+      max-height: 280px;
+      background: radial-gradient(circle at top left, #f00, #900);
+      border: 6px solid #222;
+      border-radius: 50%;
+      font-size: 6vw;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 25px red;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+
+    .switch-button:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 10px #600;
+    }
+
+    .label {
+      font-size: 4.5vw;
+      text-align: center;
+      color: #ccc;
+      margin: 0;
+    }
+
+    .indicator {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #400;
+      box-shadow: 0 0 6px #900;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    .indicator.active {
+      background: red;
+      box-shadow: 0 0 14px red;
+    }
+  </style>
+</head>
+<body>
+  <div class="switch-box">
+    <h1 class="title">💣 LAUNCH</h1>
+    <button class="switch-button" onclick="activate()">PRESS</button>
+    <p class="label">DETONATION SWITCH</p>
+    <div class="indicator" id="indicator"></div>
+  </div>
+
+  <script>
+    function activate() {
+      const indicator = document.getElementById("indicator");
+      indicator.classList.add("active");
+    }
+  </script>
+</body>
+</html>
